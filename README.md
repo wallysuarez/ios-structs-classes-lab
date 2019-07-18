@@ -25,12 +25,13 @@ let fred = Giant(name: "Fred", weight: 340.0, homePlanet: "Earth")
 
 Will these three lines of code run? If not, why not?
 
+The code for the first 2 lines will run, but the third does not run because `homePlanet` is a let constant.
+
 ```swift
 fred.name = "Brick"
 fred.weight = 999.2
 fred.homePlanet = "Mars"
 ```
-The code for the first 2 lines will run, but the third does not run because `homePlanet` is a let constant and cannot be changed.
 
 Fix the class definition for `Giant` in the space below so that it **does** work:
 
@@ -69,12 +70,13 @@ let bilbo = Alien(name: "Bilbo", height: 1.67, homePlanet: "Venus")
 
 Will these three lines of code run? If so, why not?
 
+The code will not run as is because bilbo is a let constant. For it to work, the let keyword must be changed to var
+
 ```swift
 bilbo.name = "Jake"
 bilbo.height = 1.42
 bilbo.homePlanet = "Saturn"
 ```
-The code will not run as is because bilbo is a let constant and cannot be changed. For it to work, the let keyword must be changed to var
 
 Change the declaration of `bilbo` so that the above three lines of code **do** work:
 
@@ -104,6 +106,7 @@ jason.name = "Jason"
 
 What will the value of `edgar.name` be after those three lines of code are run? What will the value of `jason.name` be? Why?
 
+The Giant's name will be changed from Edgar to Jason. This is because you reassigned the variable name from edgar to jason. Next, you called the instance of the renamed variable and called the instance `jason.name` which still had a value of "Edgar" and changed it to "Jason".
 
 ## Question 4
 
@@ -116,6 +119,8 @@ charlesFromJupiter.homePlanet = "Jupiter"
 ```
 
 What will the value of `charles.homePlanet` be after the above code run? What about the value of `charlesFromJupiter.homePlanet`? Why?
+
+The value of `charles.homePlanet` will be Pluto because its value of this instance was not reassigned until after the name of the variable charles was reassigned to `charlesFromJupiter`.  The value of `charlesFromJupiter.homePlanet` runs the value "Jupiter" because its value was reassigned.
 
 
 ## Question 5
@@ -139,7 +144,25 @@ struct BankAccount {
 
 Does this code work? Why or why not?
 
+something something Mutating Functions...
+
+
 Fix the `BankAccount` struct so it does work.
+
+```swift
+struct BankAccount {
+var owner: String
+var balance: Double
+
+mutating func deposit(_ amount: Double) {
+balance += amount
+}
+
+mutating func withdraw(_ amount: Double) {
+balance -= amount
+}
+}
+```
 
 Given the code below (which should incorporate any fixes you made):
 
@@ -151,22 +174,62 @@ joeAccount.withdraw(50.0)
 
 What will the value of `joeAccount.balance` be after the above code runs? What about the value of `joeOtherAccount.balance`? Why?
 
+Joe's account balance will be 50 after the code runs because he began with a balance of 100.  When .withdraw is called, the withdraw function subtracts the amount called from the original balance. When the variable was created, it was assigned a value of 100.
+
+ `joeOtherAccount.balance` is the same as  `joeAccount.balance`
+
 
 ## Question 6
 
 a. Write a struct called `Person` that has 3 properties of type `String`: a first name, a last name and a middle name. Have the middle name be optional. Create 2 instances of a `Person`, one with a middle name and one without. Print one of their first names.
 
+```swift
+struct Person {
+var firstName: String
+var middleName: String?
+var lastName: String
+}
+
+var person1 = Person(firstName: "Sam", middleName: "", lastName: "Burgher")
+var person2 = Person(firstName: "Carl", middleName: "Hank", lastName: "Jones")
+
+print(person1.firstName)
+```
 
 b. Write a method in `Person` called `fullName` that will return a formatted string of an instance's full name. Call this method on both the instances you created in part a.
 
+```swift
+struct Person {
+var firstName: String
+var middleName: String?
+var lastName: String
+
+func fullName() {
+print("\(self.firstName) \(String(describing: self.middleName!)) \(self.lastName)")
+}
+}
+
+var person1 = Person(firstName: "Sam", middleName: "", lastName: "Burgher")
+var person2 = Person(firstName: "Carl", middleName: "Hank", lastName: "Jones")
+
+person2.fullName()
+```
 
 ## Question 7
 
 a. Create a class called `Book` that has properties `title`, `author` and `rating`, of type `String`, `String`, and `Double` respectively. Don't forget the initializer. Create some instances of `Book`.
 
+```swift
+
+
+```
 
 b. Add a method to `Book` called `isGood` that returns `true` if its rating is greater than or equal to 7
 
+```swift
+
+
+```
 
 ## Question 8
 
@@ -272,7 +335,15 @@ let colorDictArray: [[String: Double]] = [["red": 1.0, "green": 0.0, "blue": 0.0
  ["red": 0.2, "green": 0.2, "blue": 0.5],
  ["red": 0.5, "green": 0.1, "blue": 0.9],]
 ```
+```swift
+var rgbArray = [RGBColor]()
 
+for dict in colorDictArray {
+rgbArray.append(RGBColor(red: dict["red"]!, green: dict["green"]!, blue: dict["blue"]!))
+}
+
+print(rgbArray[2])
+```
 
 ## Question 11
 
