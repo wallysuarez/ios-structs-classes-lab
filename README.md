@@ -30,8 +30,28 @@ fred.name = "Brick"
 fred.weight = 999.2
 fred.homePlanet = "Mars"
 ```
+The code for the first 2 lines will run, but the third does not run because `homePlanet` is a let constant and cannot be changed.
 
 Fix the class definition for `Giant` in the space below so that it **does** work:
+
+```swift
+class Giant {
+var name: String
+var weight: Double
+var homePlanet: String
+
+init(name: String, weight: Double, homePlanet: String) {
+self.name = name
+self.weight = weight
+self.homePlanet = homePlanet
+}
+}
+let fred = Giant(name: "Fred", weight: 340.0, homePlanet: "Earth")
+
+fred.name = "Brick"
+fred.weight = 999.2
+fred.homePlanet = "Mars"
+```
 
 
 ## Question 2
@@ -54,8 +74,22 @@ bilbo.name = "Jake"
 bilbo.height = 1.42
 bilbo.homePlanet = "Saturn"
 ```
+The code will not run as is because bilbo is a let constant and cannot be changed. For it to work, the let keyword must be changed to var
 
 Change the declaration of `bilbo` so that the above three lines of code **do** work:
+
+```swift
+struct Alien {
+var name: String
+var height: Double
+var homePlanet: String
+}
+var bilbo = Alien(name: "Bilbo", height: 1.67, homePlanet: "Venus")
+
+bilbo.name = "Jake"
+bilbo.height = 1.42
+bilbo.homePlanet = "Saturn"
+```
 
 
 ## Question 3
