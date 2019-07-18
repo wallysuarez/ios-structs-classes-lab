@@ -3,7 +3,7 @@
 Fork and clone this repo. On your fork, answer and commit the follow questions. When you are finished, submit the link to your repo on Canvas.
 
 
-## Question 1
+## Question 1 ✔︎
 
 Given this class that represents a giant:
 
@@ -55,7 +55,7 @@ fred.homePlanet = "Mars"
 ```
 
 
-## Question 2
+## Question 2  ✔︎
 
 Take a look at this struct that represents an alien:
 
@@ -94,7 +94,7 @@ bilbo.homePlanet = "Saturn"
 ```
 
 
-## Question 3
+## Question 3  ✔︎
 
 Consider this bit of code that uses the `Giant` class:
 
@@ -108,7 +108,7 @@ What will the value of `edgar.name` be after those three lines of code are run? 
 
 The Giant's name will be changed from Edgar to Jason. This is because you reassigned the variable name from edgar to jason. Next, you called the instance of the renamed variable and called the instance `jason.name` which still had a value of "Edgar" and changed it to "Jason".
 
-## Question 4
+## Question 4  ✔︎
 
 Given this bit of code that uses the `Alien` struct:
 
@@ -123,7 +123,7 @@ What will the value of `charles.homePlanet` be after the above code run? What ab
 The value of `charles.homePlanet` will be Pluto because its value of this instance was not reassigned until after the name of the variable charles was reassigned to `charlesFromJupiter`.  The value of `charlesFromJupiter.homePlanet` runs the value "Jupiter" because its value was reassigned.
 
 
-## Question 5
+## Question 5  ✔︎
 
 Here's a struct that represents a bank account:
 
@@ -144,8 +144,7 @@ struct BankAccount {
 
 Does this code work? Why or why not?
 
-something something Mutating Functions...
-
+The code does not work unless we modify the function.  In order to run the function we must use mutating functions.  Otherwise, xcode will treat balance inside the function as a constant, unable to change.
 
 Fix the `BankAccount` struct so it does work.
 
@@ -179,7 +178,7 @@ Joe's account balance will be 50 after the code runs because he began with a bal
  `joeOtherAccount.balance` is the same as  `joeAccount.balance`
 
 
-## Question 6
+## Question 6  ✔︎
 
 a. Write a struct called `Person` that has 3 properties of type `String`: a first name, a last name and a middle name. Have the middle name be optional. Create 2 instances of a `Person`, one with a middle name and one without. Print one of their first names.
 
@@ -321,7 +320,7 @@ tenDegreesCelsius.fahrenheit //returns 50.0
 c. Give the `Celsius` struct a method called `isBelowFreezing` that returns a `Bool` (true if the temperature is below freezing).
 
 
-## Question 10
+## Question 10  ✔︎
 
 Create a struct called `RGBColor` that has 3 properties, `red`, `green`, `blue` that are all of type `Double`.
 
